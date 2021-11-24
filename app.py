@@ -99,7 +99,7 @@ def temp_end(start,end):
     session = Session(engine)
     temp_end = []
 
-    all_temps = session.query(Measurement.date, func.min(Measurement.tobs), func.max(Measurement.tobs), func.avg(Measurement.tobs)).filter(Measurement.date >= start and Measurement.date <= end).order_by(Measurement.date).all()
+    all_temps = session.query(Measurement.date, func.min(Measurement.tobs), func.max(Measurement.tobs), func.avg(Measurement.tobs)).filter(Measurement.date >= end and Measurement.date <= end).order_by(Measurement.date).all()
 
     for date, min, max, avg in all_temps:
         temp_dict = {}
